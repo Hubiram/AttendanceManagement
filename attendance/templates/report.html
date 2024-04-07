@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <style>
+        .top-right-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Report</h2>
+
+    <a href="{% url 'main' %}" class="top-right-button"></a>
+
+    <form action="{% url 'report' %}" method="GET">
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="student_id" required><br><br>
+        <button type="submit" name="daily_attendance">Daily Attendance</button>
+        <button type="submit" name="attendance_report">Attendance Report</button>
+    </form>
+
+    {% if student_name %}
+    <h3>Student Name: {{ student_name }}</h3>
+    {% endif %}
+
+    {% if attendance_entries %}
+    <h3>Daily Attendance</h3>
+    <ul>
+        {% for entry in attendance_entries %}
+        <li>
+            <ul>
+                <li>Subject: {{ entry.subject_name }}</li>
+                <li>Date: {{ entry.date }}</li>
+                <li>{% if entry.attended %} Present {% else %} Absent {% endif %}</li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if subject_attendance %}
+    <h3>Attendance Report</h3>
+    <ul>
+        {% for subject_id, attendance_data in subject_attendance.items %}
+        <li>Subject: {{ attendance_data.name }}</li>
+        <ul>
+            <li>Total Classes: {{ attendance_data.total_classes }}</li>
+            <li>Total Attended: {{ attendance_data.total_attended }}</li>
+        </ul>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+
+</html>

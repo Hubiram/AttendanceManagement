@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Entry</title>
+    <style>
+        .top-right-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Attendance Entry</h1>
+
+    <a href="{% url 'main' %}" class="top-right-button"></a>
+
+    <form action="{% url 'entry' %}" method="post">
+        {% csrf_token %}
+        <label for="student_id">Student ID:</label>
+        <input type="number" name="student_id" required><br>
+
+        <label for="subject_id">Subject ID:</label>
+        <input type="number" name="subject_id" required><br>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" required><br>
+
+        <label for="attended">Attended:</label>
+        <select name="attended" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

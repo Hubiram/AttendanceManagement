@@ -1,0 +1,89 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "Abhiram"
+        },
+        {
+            "id": 2,
+            "name": "Priyanshu"
+        },
+        {
+            "id": 3,
+            "name": "Tom"
+        }
+    ],
+    "subjects": [
+        {
+            "id": 1,
+            "name": "DS",
+            "students": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "name": "EEFM",
+            "students": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 3,
+            "name": "PCAP",
+            "students": [
+                1,
+                2,
+                3
+            ]
+        }
+    ],
+    "attendance": [
+        {
+            "id": 1,
+            "student": 1,
+            "subject": 1,
+            "date": "2024-01-01",
+            "attended": true
+        },
+        {
+            "id": 2,
+            "student": 1,
+            "subject": 2,
+            "date": "2024-01-02",
+            "attended": false
+        },
+        {
+            "id": 3,
+            "student": 2,
+            "subject": 1,
+            "date": "2024-01-01",
+            "attended": true
+        },
+        {
+            "id": 4,
+            "student": 2,
+            "subject": 2,
+            "date": "2024-01-01",
+            "attended": true
+        },
+        {
+            "id": 5,
+            "student": 3,
+            "subject": 1,
+            "date": "2024-01-02",
+            "attended": false
+        },
+        {
+            "id": 6,
+            "student": 3,
+            "subject": 2,
+            "date": "2024-01-01",
+            "attended": true
+        }
+    ]
+}
